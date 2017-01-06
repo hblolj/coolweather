@@ -1,5 +1,6 @@
 package com.example.hblolj.jjcoolweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.hblolj.jjcoolweather.gson.Forecast;
 import com.example.hblolj.jjcoolweather.gson.Weather;
+import com.example.hblolj.jjcoolweather.service.AutoUpdateService;
 import com.example.hblolj.jjcoolweather.util.HttpUtils;
 import com.example.hblolj.jjcoolweather.util.Utility;
 
@@ -189,6 +191,8 @@ public class WeatherActivity extends AppCompatActivity {
         sportText.setText(sport);
 
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     /**
